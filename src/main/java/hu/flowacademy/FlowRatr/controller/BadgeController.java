@@ -23,4 +23,5 @@ public class BadgeController {
         return ResponseEntity.ok(badgeService.update(badge));
     }
 
+
 }

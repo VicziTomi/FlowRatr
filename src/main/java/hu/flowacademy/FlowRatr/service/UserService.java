@@ -33,4 +33,8 @@ public class UserService {
         throw new ValidationErrorException();
     }
 
+    public User getUser(String username) {
+        return userRespository.findByUsername(username);
+    }
+
 }

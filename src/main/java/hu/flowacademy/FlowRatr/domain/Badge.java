@@ -22,7 +22,7 @@ public class Badge {
     @JoinColumn(name = "user_id", foreignKey = @ForeignKey(name = "fk_badge_user_id"))
     private User user;
 
-    @ManyToMany
+    @ManyToMany(mappedBy = "badgeSet")
     Set<User> userSet;
 
     public Badge(long id, String name, byte[] content, User user) {

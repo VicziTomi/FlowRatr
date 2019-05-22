@@ -30,7 +30,7 @@ public class User {
             name = "users_badge",
             joinColumns = @JoinColumn(name = "users_username"),
             inverseJoinColumns = @JoinColumn(name = "badge_id"))
-    Set<Badge> badgeSet;
+    private Set<Badge> badgeSet;
 
 
     public User(String username, String fullname, String password, String role) {
@@ -41,6 +41,24 @@ public class User {
     }
 
     public User() {}
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        User user = (User) o;
+        return username.equals(user.username) &&
+                Objects.equals(fullname, user.fullname) &&
+                Objects.equals(password, user.password) &&
+                Objects.equals(role, user.role) &&
+                Objects.equals(badges, user.badges) &&
+                Objects.equals(badgeSet, user.badgeSet);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(username, fullname, password, role, badges, badgeSet);
+    }
 
     public String getUsername() {
         return username;
