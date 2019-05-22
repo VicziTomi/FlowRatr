@@ -2,6 +2,7 @@ package hu.flowacademy.FlowRatr.domain;
 
 import javax.persistence.*;
 import java.util.Objects;
+import java.util.Set;
 
 @Entity
 @Table(name = "badge")
@@ -20,6 +21,9 @@ public class Badge {
     @ManyToOne
     @JoinColumn(name = "user_id", foreignKey = @ForeignKey(name = "fk_badge_user_id"))
     private User user;
+
+    @ManyToMany
+    Set<User> userSet;
 
     public Badge(long id, String name, byte[] content, User user) {
         this.id = id;

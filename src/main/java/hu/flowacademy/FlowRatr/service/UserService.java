@@ -1,12 +1,12 @@
 package hu.flowacademy.FlowRatr.service;
 
 import hu.flowacademy.FlowRatr.domain.User;
+import javax.transaction.Transactional;
 import hu.flowacademy.FlowRatr.exception.ValidationErrorException;
 import hu.flowacademy.FlowRatr.repository.UserRespository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import javax.transaction.Transactional;
 import java.util.List;
 
 @Service
