@@ -35,6 +35,10 @@ public class Badge {
         this.user = Objects.requireNonNull(user);
     }
 
+    public void addUser(User user) {
+        this.userSet.add(user);
+    }
+
     public Badge() {}
 
     public long getId() {

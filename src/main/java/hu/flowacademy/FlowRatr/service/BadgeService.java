@@ -52,6 +52,13 @@ public class BadgeService {
         Badge b = badgeRepository.getOne(id);
 
         u.addBadge(b);
+        b.addUser(u);
         userService.update(u);
+
+
+    }
+
+    public void giveBadge2(User user, Long id) {
+        user.addBadge(badgeRepository.getOne(id));
     }
 }

@@ -72,7 +72,7 @@ public class User {
     }
 
     public void addBadge(Badge badge) {
-        this.badges.add(badge);
+        this.badgeSet.add(badge);
     }
 
     public Set<Badge> getBadgeSet() {

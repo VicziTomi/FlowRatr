@@ -17,7 +17,6 @@ import static org.springframework.test.web.servlet.request.MockMvcRequestBuilder
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
-
 @Ignore
 @RunWith(SpringRunner.class)
 @WebMvcTest(UserController.class)
@@ -39,26 +38,4 @@ public class UserControllerTest {
     }
 
 
-
-
-
-/*
-    @Test
-    public void givenTodoItems_whenTodoItems_thenReturnJsonArray() throws Exception {
-
-        TodoItem todoItemShouldBeFound = new TodoItem("ExTest1", "TestTodoItem", false);
-
-        List<TodoItem> allTodoItemShouldBeFound = Arrays.asList(todoItemShouldBeFound);
-
-        given(todolistService.listItems()).willReturn(allTodoItemShouldBeFound);
-
-        mvc.perform(get("/todolist/list-items")
-                .contentType(MediaType.APPLICATION_JSON))
-                .andExpect(status().isOk())
-                .andExpect(jsonPath("$", hasSize(1)))
-                .andExpect(jsonPath("$[0].description", is(todoItemShouldBeFound.getDescription())));
-    }
-
-
- */
 }

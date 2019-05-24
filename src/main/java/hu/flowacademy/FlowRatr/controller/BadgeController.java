@@ -1,6 +1,7 @@
 package hu.flowacademy.FlowRatr.controller;
 
 import hu.flowacademy.FlowRatr.domain.Badge;
+import hu.flowacademy.FlowRatr.domain.User;
 import hu.flowacademy.FlowRatr.service.BadgeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -37,9 +38,12 @@ public class BadgeController {
     }
 
     @PostMapping("/givebadge/{username}/{id}")
-    public void giveBadge(@PathVariable String username, Long id) {
+    public void giveBadge(@PathVariable String username, @PathVariable Long id) {
         badgeService.giveBadge(username, id);
     }
 
-
+    @PostMapping("/give/{id}")
+    public void giveBadge2(@RequestBody User user, @PathVariable Long id) {
+        badgeService.giveBadge2(user, id);
+    }
 }
