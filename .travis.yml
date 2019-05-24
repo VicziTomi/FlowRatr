@@ -1,4 +1,10 @@
 jdk: openjdk11
 language: java
+services: postgresql
+before_script:
+  - createuser flowratr
+  - psql -c "alter user flowratr with encrypted password '123456';" -U postgres
+  - psql -c "create database flowratr;" -U postgres
+  - psql -c "grant all privileges on database flowratr to flowratr;" -U postgres
 script:
   - "./gradlew :cleanTest :test"
