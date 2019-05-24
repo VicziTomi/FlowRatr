@@ -1,5 +1,7 @@
 package hu.flowacademy.FlowRatr.domain;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 import java.util.List;
 import java.util.Objects;
@@ -22,6 +24,7 @@ public class User {
     @Column
     private String role;
 
+    @JsonIgnore
     @OneToMany(mappedBy = "user")
     private List<Badge> badges;
 
@@ -58,6 +61,26 @@ public class User {
     @Override
     public int hashCode() {
         return Objects.hash(username, fullname, password, role, badges, badgeSet);
+    }
+
+    public List<Badge> getBadges() {
+        return badges;
+    }
+
+    public void setBadges(List<Badge> badges) {
+        this.badges = badges;
+    }
+
+    public void addBadge(Badge badge) {
+        this.badges.add(badge);
+    }
+
+    public Set<Badge> getBadgeSet() {
+        return badgeSet;
+    }
+
+    public void setBadgeSet(Set<Badge> badgeSet) {
+        this.badgeSet = badgeSet;
     }
 
     public String getUsername() {

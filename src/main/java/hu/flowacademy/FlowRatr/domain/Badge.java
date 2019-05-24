@@ -1,5 +1,7 @@
 package hu.flowacademy.FlowRatr.domain;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 import java.util.Objects;
 import java.util.Set;
@@ -22,8 +24,9 @@ public class Badge {
     @JoinColumn(name = "user_id", foreignKey = @ForeignKey(name = "fk_badge_user_id"))
     private User user;
 
+    @JsonIgnore
     @ManyToMany(mappedBy = "badgeSet")
-    Set<User> userSet;
+    private Set<User> userSet;
 
     public Badge(long id, String name, byte[] content, User user) {
         this.id = id;

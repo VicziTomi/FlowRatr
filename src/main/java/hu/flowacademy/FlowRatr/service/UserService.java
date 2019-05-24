@@ -37,4 +37,8 @@ public class UserService {
         return userRespository.findByUsername(username);
     }
 
+    public List<User> getAllUser() {
+        return userRespository.findAll();
+    }
+
 }
